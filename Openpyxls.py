@@ -1,8 +1,10 @@
 # Carrega o arquivo .xlsx
 from openpyxl import load_workbook
-wb = load_workbook('Enviodasatividades.xlsx')
+wb = load_workbook('./arquivos/Enviodasatividades.xlsx')
 ws = wb.active
 
+#variavel com o maximo de atividades
+NotaMedia = 5/2
 # Mando o maximo de linhas e colunas para variáveis
 max_linha = ws.max_row
 max_col = ws.max_column
@@ -63,4 +65,6 @@ def remove_repetidos(l):
     return pronta 
 
 pronto = remove_repetidos(pronto)        
+
+
       
