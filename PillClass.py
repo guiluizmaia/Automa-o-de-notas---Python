@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw, ImageFont
 Font1 = ImageFont.truetype("./arquivos/FonteBase.ttf", size=40)
 Font2 = ImageFont.truetype("./arquivos/FonteBase.ttf", size=25)
 
-
+#Percorre todo a lista para criar uma imagem pra cada um
 for i in range(0, len(Openpyxls.pronto)):
     #Coloquei a imagem que vou usar em um objeto do tipo image
     imagem = Image.open("./arquivos/ImagemBase.png").convert("RGBA")
