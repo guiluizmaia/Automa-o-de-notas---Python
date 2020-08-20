@@ -1,22 +1,30 @@
-#Importações necessárias para o envio
-from email.mine.multipart import MIMEMultipart
-from email.MIMEImage import MIMEImage
+from email.mime.multipart import MIMEMultipart
+from email.mime.image import MIMEImage
 from email.mime.text import MIMEText
 import smtplib
+import os
 
-#criar um objeto para instanciar
+
 mensagem = MIMEMultipart()
+mensagem['De'] = "guilhermemaia201450@gmail.com"
+senha = "113311gm"
+caminho = os.listdir('./Email')
+for cam in caminho:
+    img = f'./Email/{cam}'
+    
+    fp = open(img, 'rb')
+    mensagem.attach(MIMEImage(fp.read()))
+    fp.close()
+    
+    para = cam[:-4]
+    mensagem['Para'] = f"{para}.com"
 
-#Parâmetros de envio
-password = "sua senha"
-mensagem['From'] = "seu email"
-mensagem['To'] = "email a enviar"
-mensagem['Subject'] = "tema"
+    servidor = smtplib.SMTP('smtp.gmail.com: 587')
+    
+    servidor.starttls()
 
-# anexando a imagem a mensagem
-mensagem.attach(MIMEImage(file("coloca o arquivo").read()))
+    servidor.login(mensagem['De'], senha)
 
-#Cria o servidor, usando o smtp do email
-#Nesse caso é do gmail
-servidor = smtplib.SMTP('smtp.gmail.com: 587')
-servidor.starttls()
+    servidor.sendmail(mensagem['De'], mensagem['Para'], mensagem.as_string())
+    
+    servidor.quit()

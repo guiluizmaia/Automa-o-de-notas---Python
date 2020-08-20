@@ -1,5 +1,7 @@
 # Carrega o arquivo .xlsx
 from openpyxl import load_workbook
+
+# O load carrega o arquivo e o active permite usar os dados
 wb = load_workbook('./arquivos/Enviodasatividades.xlsx')
 ws = wb.active
 
@@ -36,6 +38,8 @@ tamanhoLista = len(ra)
 pronto = list()
 compara = list()
 
+# Cria uma lista com a quantidade de atividades enviadas
+# Porém ele gera itens repetidos na lista
 for i in range (0, tamanhoLista):
     compara.append(ra[i])
     
@@ -47,7 +51,7 @@ for i in range (0, tamanhoLista):
     compara.clear() 
 
 
-
+# Como o nome ja diz remove os repetidos da lista
 def remove_repetidos(l):
     lista = l
     pronta = list()
@@ -64,7 +68,6 @@ def remove_repetidos(l):
            
     return pronta 
 
+# Atualiza a lista
 pronto = remove_repetidos(pronto)        
-
-
-      
+     

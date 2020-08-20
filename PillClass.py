@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw, ImageFont
 Font1 = ImageFont.truetype("./arquivos/FonteBase.ttf", size=40)
 Font2 = ImageFont.truetype("./arquivos/FonteBase.ttf", size=25)
 
-#Percorre todo a lista para criar uma imagem pra cada um
+
 for i in range(0, len(Openpyxls.pronto)):
     #Coloquei a imagem que vou usar em um objeto do tipo image
     imagem = Image.open("./arquivos/ImagemBase.png").convert("RGBA")
@@ -34,11 +34,11 @@ for i in range(0, len(Openpyxls.pronto)):
             )
             Escr.text(
                 (250, 445),
-                text=f"Atividades enviadas: {Openpyxls.pronto[i][0][3]}",
+                text=f"Atividades enviadas: \n{Openpyxls.pronto[i][0][3]}",
                 fill="#000",
                 font=Font1
             )
-            imagem.save(f"./Email/{Openpyxls.pronto[i][0][2]}.png")
+            imagem.save(f"./Email/{Openpyxls.pronto[i][0][2]}.png")    
     else:
         Escr.text(
             (250, 305),
@@ -64,5 +64,6 @@ for i in range(0, len(Openpyxls.pronto)):
             fill="#000",
             font=Font1
         )
-        imagem.save(f"./Email/{Openpyxls.pronto[i][0][2]}.png")        
+        
+        imagem.save(f"./Email/{Openpyxls.pronto[i][0][2]}.png")       
              
