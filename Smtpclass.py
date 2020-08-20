@@ -6,8 +6,8 @@ import os
 
 
 mensagem = MIMEMultipart()
-mensagem['De'] = "guilhermemaia201450@gmail.com"
-senha = "113311gm"
+mensagem['De'] = "seuemail@gmail.com"
+senha = "suasenha"
 caminho = os.listdir('./Email')
 for cam in caminho:
     img = f'./Email/{cam}'
