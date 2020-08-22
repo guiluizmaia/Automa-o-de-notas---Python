@@ -38,7 +38,11 @@ for i in range(0, len(Openpyxls.pronto)):
                 fill="#000",
                 font=Font1
             )
-            imagem.save(f"./Email/{Openpyxls.pronto[i][0][2]}.png")    
+            var = Openpyxls.pronto[i][0][2]
+            if (var != None):
+                var = var.strip()
+                var = var[:-4]
+                imagem.save(f"./Email/{var}.png")    
     else:
         Escr.text(
             (250, 305),
@@ -64,6 +68,10 @@ for i in range(0, len(Openpyxls.pronto)):
             fill="#000",
             font=Font1
         )
-        
-        imagem.save(f"./Email/{Openpyxls.pronto[i][0][2]}.png")       
+        var = Openpyxls.pronto[i][0][2]
+        if (var != None):
+            var = var.strip()
+            var = var[:-4]
+            imagem.save(f"./Email/{var}.png")
+               
              
