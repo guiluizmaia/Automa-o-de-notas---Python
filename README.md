@@ -14,4 +14,6 @@ AUTOMAÇÃO DAS NOTAS PYTHON
 		- Simple Mail Transfer Protocol (SMTP) - Para enviarmos para o e-mail do aluno
 	.PS: Trarei toda a documentação dessas bibliotecas traduzidas para o blog
   
+  
+  O projeto está com todas as funcionalidades propostas no início completa, porem agora pretendo colocar um arquivo de configuração .ini para facilitar o acesso do usuário
   link do meu blog: https://www.programadoruniversitario.com.br/
