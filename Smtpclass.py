@@ -3,16 +3,20 @@ from email.mime.image import MIMEImage
 from email.mime.text import MIMEText
 import smtplib
 import os
+import configparser
+
+config = configparser.ConfigParser()
+config.read('./arquivos/Config.ini')
 
 
 
-senha = "113311gm"
+senha = config.get('smtp', 'senha')
 caminho = os.listdir('./Email')
 
 for cam in caminho:
     try:
         mensagem = MIMEMultipart()
-        mensagem['De'] = "guilhermemaia201450@gmail.com"
+        mensagem['De'] = config.get('smtp', 'de')
         img = f'./Email/{cam}'
     
         fp = open(img, 'rb')

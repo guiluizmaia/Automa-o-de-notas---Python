@@ -1,12 +1,18 @@
 # Carrega o arquivo .xlsx
 from openpyxl import load_workbook
+import configparser
+
+config = configparser.ConfigParser()
+config.read('./arquivos/Config.ini')
+
 
 # O load carrega o arquivo e o active permite usar os dados
 wb = load_workbook('./arquivos/Enviodasatividades.xlsx')
 ws = wb.active
 
 #variavel com o maximo de atividades
-NotaMedia = 5/2
+NotaMedia = config.getint('openpy', 'nAtividades')/2
+
 # Mando o maximo de linhas e colunas para variáveis
 max_linha = ws.max_row
 max_col = ws.max_column
@@ -69,5 +75,6 @@ def remove_repetidos(l):
     return pronta 
 
 # Atualiza a lista
-pronto = remove_repetidos(pronto)        
+pronto = remove_repetidos(pronto) 
+    
      
